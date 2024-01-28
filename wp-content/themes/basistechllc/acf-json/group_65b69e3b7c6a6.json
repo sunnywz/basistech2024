@@ -90,6 +90,76 @@
             ]
         },
         {
+            "key": "field_65b6b3e674b7f",
+            "label": "Default Post Imagery",
+            "name": "post_imagery",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_65b6b3e674b80",
+                    "label": "Header Image",
+                    "name": "default_post_header",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "translations": "copy_once",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium"
+                },
+                {
+                    "key": "field_65b6b3e674b81",
+                    "label": "Footer Image",
+                    "name": "default_post_footer",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "translations": "copy_once",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium"
+                }
+            ]
+        },
+        {
             "key": "field_65b69eb6fb5f7",
             "label": "Default Event Imagery",
             "name": "event_imagery",
@@ -162,7 +232,7 @@
         {
             "key": "field_65b69ed9fb5fa",
             "label": "Default Team Imagery",
-            "name": "team_imagery_copy",
+            "name": "team_imagery",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -178,7 +248,7 @@
                 {
                     "key": "field_65b69ed9fb5fb",
                     "label": "Header Image",
-                    "name": "default_portfolio_header",
+                    "name": "default_team_header",
                     "aria-label": "",
                     "type": "image",
                     "instructions": "",
@@ -204,7 +274,7 @@
                 {
                     "key": "field_65b69ed9fb5fc",
                     "label": "Footer Image",
-                    "name": "default_portfolio_footer",
+                    "name": "default_team_footer",
                     "aria-label": "",
                     "type": "image",
                     "instructions": "",
@@ -248,5 +318,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1706468692
+    "modified": 1706472443
 }

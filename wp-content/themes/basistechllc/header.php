@@ -57,3 +57,5 @@
 			?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
+
+	<?php get_template_part( 'template-parts/graphic', 'header' ); ?>
