@@ -138,14 +138,13 @@ add_action( 'widgets_init', 'basistechllc_widgets_init' );
  * Enqueue scripts and styles.
  */
 function basistechllc_scripts() {
-	wp_enqueue_style( 'basistechllc-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'basistechllc-style', 'rtl', 'replace' );
-
-	wp_enqueue_script( 'basistechllc-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+	wp_enqueue_style( 'basistechllc-fonts', 'https://use.typekit.net/pxl2vla.css', array(), '1.0' );
+	wp_enqueue_style( 'basistechllc-pluginscss', get_template_directory_uri() . '/css/plugins.css', array(), '1.0' );
+	wp_enqueue_style( 'basistechllc-style', get_stylesheet_uri(), array(), '1.0' );
+	
+	wp_enqueue_script( 'basistechllc-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '1.0', true );
+	wp_enqueue_script( 'basistechllc-pluginsjs', get_template_directory_uri() . '/js/plugins.js', array('jquery'), '1.0' );
+	wp_enqueue_script( 'basistechllc-globaljs', get_template_directory_uri() . '/js/global.js', array('jquery', 'basistechllc-pluginsjs'), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'basistechllc_scripts' );
 
