@@ -61,8 +61,6 @@ function basistechllc_setup() {
 		'html5',
 		array(
 			'search-form',
-			'comment-form',
-			'comment-list',
 			'gallery',
 			'caption',
 			'style',
@@ -70,35 +68,9 @@ function basistechllc_setup() {
 		)
 	);
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support(
-		'custom-background',
-		apply_filters(
-			'basistechllc_custom_background_args',
-			array(
-				'default-color' => 'ffffff',
-				'default-image' => '',
-			)
-		)
-	);
-
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
-	/**
-	 * Add support for core custom logo.
-	 *
-	 * @link https://codex.wordpress.org/Theme_Logo
-	 */
-	add_theme_support(
-		'custom-logo',
-		array(
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
-			'flex-height' => true,
-		)
-	);
 }
 add_action( 'after_setup_theme', 'basistechllc_setup' );
 
@@ -138,7 +110,7 @@ add_action( 'widgets_init', 'basistechllc_widgets_init' );
  * Enqueue scripts and styles.
  */
 function basistechllc_scripts() {
-	wp_enqueue_style( 'basistechllc-fonts', 'https://use.typekit.net/pxl2vla.css', array(), '1.0' );
+    wp_enqueue_style( 'basistechllc-fonts', 'https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;700&family=Source+Sans+3:wght@400;700&display=swap', array(), null);
 	wp_enqueue_style( 'basistechllc-pluginscss', get_template_directory_uri() . '/css/plugins.css', array(), '1.0' );
 	wp_enqueue_style( 'basistechllc-style', get_stylesheet_uri(), array(), '1.0' );
 	
@@ -151,7 +123,7 @@ add_action( 'wp_enqueue_scripts', 'basistechllc_scripts' );
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+// require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -166,7 +138,7 @@ require get_template_directory() . '/inc/template-functions.php';
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+// require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Load Jetpack compatibility file.
