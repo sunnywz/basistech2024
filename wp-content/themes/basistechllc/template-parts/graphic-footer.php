@@ -1,25 +1,47 @@
-<?php $page_footer = get_field( 'page_footer' ); ?>
-<?php if ( $page_footer ) : ?>
-	<img src="<?php echo esc_url( $page_footer['url'] ); ?>" alt="<?php echo esc_attr( $page_footer['alt'] ); ?>" />
-<?php endif; ?>
+<?php 
+$footer = get_field( 'page_footer' );
+if ( !$footer ) :
+	$post_type = get_post_type();
+	switch($post_type) :
+		case 'post' :
+			if ( have_rows( 'post_imagery', 'option' ) ) :
+				while ( have_rows( 'post_imagery', 'option' ) ) : the_row(); 
+					$footer = get_sub_field( 'default_post_footer' );
+				endwhile;
+			endif;
+		break;
+		
+		case 'event' :
+			if ( have_rows( 'event_imagery', 'option' ) ) :
+				while ( have_rows( 'event_imagery', 'option' ) ) : the_row(); 
+					$footer = get_sub_field( 'default_event_footer' );
+				endwhile;
+			endif;
+		break;
+		
+		case 'team-member' :
+			if ( have_rows( 'team_imagery', 'option' ) ) :
+				while ( have_rows( 'team_imagery', 'option' ) ) : the_row(); 
+					$footer = get_sub_field( 'default_team_footer' );
+				endwhile;
+			endif;
+		break;
+		
+		case 'page' :
+		default :
+			if ( have_rows( 'page_imagery', 'option' ) ) :
+				while ( have_rows( 'page_imagery', 'option' ) ) : the_row(); 
+					$footer = get_sub_field( 'default_page_footer' );
+				endwhile;
+			endif;
+		break;
+	
+	endswitch;
+endif;
 
-<?php if ( have_rows( 'page_imagery', 'option' ) ) : ?>
-	<?php while ( have_rows( 'page_imagery', 'option' ) ) : the_row(); ?>
-	<?php endwhile; ?>
-<?php endif; ?>
-<?php if ( have_rows( 'event_imagery', 'option' ) ) : ?>
-	<?php while ( have_rows( 'event_imagery', 'option' ) ) : the_row(); ?>
-	<?php endwhile; ?>
-<?php endif; ?>
-<?php if ( have_rows( 'team_imagery_copy', 'option' ) ) : ?>
-	<?php while ( have_rows( 'team_imagery_copy', 'option' ) ) : the_row(); ?>
-		<?php $default_portfolio_header = get_sub_field( 'default_portfolio_header' ); ?>
-		<?php if ( $default_portfolio_header ) : ?>
-			<img src="<?php echo esc_url( $default_portfolio_header['url'] ); ?>" alt="<?php echo esc_attr( $default_portfolio_header['alt'] ); ?>" />
-		<?php endif; ?>
-		<?php $default_portfolio_footer = get_sub_field( 'default_portfolio_footer' ); ?>
-		<?php if ( $default_portfolio_footer ) : ?>
-			<img src="<?php echo esc_url( $default_portfolio_footer['url'] ); ?>" alt="<?php echo esc_attr( $default_portfolio_footer['alt'] ); ?>" />
-		<?php endif; ?>
-	<?php endwhile; ?>
-<?php endif; ?>
+if($footer) : ?>
+	<div class="graphic-footer">
+		 <img class="simple-parallax" src="<?php echo $footer['url']; ?>" alt="<?php echo $footer['alt']; ?>">
+	</div>
+<?php
+endif; ?>
