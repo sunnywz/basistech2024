@@ -419,6 +419,9 @@ h6 {
 	clear: both;
 	font-family: 'Lexend Deca', sans-serif;
 	font-weight: 400;
+	line-height: 1.2;
+	margin-top: 0.5rem;
+	margin-bottom: 1.5rem;
 }
 
 h1 {
@@ -437,7 +440,15 @@ i {
 }
 
 blockquote {
-	margin: 0 1.5em;
+	border-left: 6px solid #f86e4d;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	margin: 1.5rem 0;
+	padding: 0 1.5rem;
+}
+
+blockquote p {
+	font-size: 1.5rem;
 }
 
 address {
@@ -540,18 +551,16 @@ table {
 
 /* Links
 --------------------------------------------- */
-a {
-	color: #4169e1;
-}
-
+a,
 a:visited {
-	color: #800080;
+	color: #00597e;
+	text-decoration: none;
 }
 
 a:hover,
 a:focus,
 a:active {
-	color: #191970;
+	color: #4f85f5;
 }
 
 a:focus {
@@ -561,6 +570,27 @@ a:focus {
 a:hover,
 a:active {
 	outline: 0;
+}
+
+/* Buttons
+--------------------------------------------- */
+.button,
+.button:visited {
+	background: #4f85f5;
+	border-radius: 50px;
+	color: #ffffff;
+	font-size: 1rem;
+	line-height: 1.2;
+	padding: 15px 25px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.button:active,
+.button:focus,
+.button:hover {
+	background: #242d4e;
+	color: #ffffff;
 }
 
 /* Forms
@@ -1244,6 +1274,10 @@ textarea {
 	text-align: right;
 }
 
+.clickable-div {
+	cursor: pointer;
+}
+
 /*--------------------------------------------------------------
 # Colors
 --------------------------------------------------------------*/
@@ -1282,7 +1316,7 @@ textarea {
 # Graphic Header
 --------------------------------------------------------------*/
 .graphic-header {
-	height: 225px;
+	height: 250px;
 	overflow: hidden;
 }
 
@@ -1301,6 +1335,7 @@ textarea {
 }
 
 .graphic-footer img {
+	clip-path: circle(100px at center);
 	vertical-align: middle;
 	width: 100%;
 }
@@ -1340,14 +1375,123 @@ textarea {
 	padding-bottom: 70px;
 }
 
+.section-title {
+	font-size: 4rem;
+	text-align: center;
+}
+
 /* Content Block
 --------------------------------------------- */
+.block-content-flex {
+	align-items: flex-start;
+	display: flex;
+	justify-content: space-between;
+}
 
+.flex-33-67 .flex-item:first-child {
+	flex-basis: calc(33% - 25px);
+}
 
+.flex-33-67 .flex-item:last-child {
+	flex-basis: calc(67% - 25px);
+}
+
+.flex-40-60 .flex-item:first-child {
+	flex-basis: calc(40% - 25px);
+}
+
+.flex-40-60 .flex-item:last-child {
+	flex-basis: calc(60% - 25px);
+}
+
+.flex-50-50 .flex-item {
+	flex-basis: calc(50% - 25px);
+}
+
+.flex-60-40 .flex-item:first-child {
+	flex-basis: calc(60% - 25px);
+}
+
+.flex-60-40 .flex-item:last-child {
+	flex-basis: calc(40% - 25px);
+}
+
+.flex-67-33 .flex-item:first-child {
+	flex-basis: calc(67% - 25px);
+}
+
+.flex-67-33 .flex-item:last-child {
+	flex-basis: calc(33% - 25px);
+}
+
+@media screen and (max-width: 640px) {
+	.block-content-flex {
+		flex-wrap: wrap;
+	}
+	
+	.flex-item {
+		flex-basis: 100% !important;
+		margin-top: 25px;
+		margin-bottom: 25px;
+	}
+	
+	.flex-reverse .flex-item:first-child {
+		order: 2;
+	}
+	
+	.flex-reverse .flex-item:last-child {
+		order: 1;
+	}
+}
 
 /* Portfolio Block
 --------------------------------------------- */
+.portfolio-wall {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
 
+.portfolio-item {
+	align-items: center;
+	border: 1px solid transparent;
+	display: flex;
+	flex-basis: 33.33%;
+	justify-content: center;
+	margin: 20px 0;
+	padding: 40px 20px;	
+}
+
+.portfolio-item img {
+	display: block;
+	margin: 0 auto;
+	max-height: 200px;
+	max-width: 80%;
+	vertical-align: middle;
+}
+
+.portfolio-item:hover {
+	border: 1px solid rgba(221, 226, 232, 0.5);
+	-webkit-box-shadow: 15px 10px 25px -13px rgba(219,224,231,0.5);
+	-moz-box-shadow: 15px 10px 25px -13px rgba(219,224,231,0.5);
+	box-shadow: 15px 10px 25px -13px rgba(219,224,231,0.5);
+}
+
+.portfolio-item a {
+	display: block;
+}
+
+.portfolio-item:hover a {
+	color: #4f85f5;
+}
+
+.portfolio-item p {
+	font-family: 'Lexend Deca', sans-serif;
+	font-size: 1.5rem;
+	margin: 0;
+	text-align: center;
+	text-transform: uppercase;
+}
 
 /* Events Block
 --------------------------------------------- */
@@ -1357,3 +1501,73 @@ textarea {
 /*--------------------------------------------------------------
 # Custom Blocks
 --------------------------------------------------------------*/
+
+/* Home Page Hero (Blue Background, Large H1 and P)
+--------------------------------------------- */
+.large-hero-text h1 {
+	font-size: 4rem;
+	margin-top: 0;
+}
+
+.large-hero-text p {
+	font-family: 'Lexend Deca', sans-serif;
+	font-size: 2rem;
+}
+
+/* Home Page Intro (Yellow Circle, Larger Paragraphs)
+--------------------------------------------- */
+.home-intro {
+	overflow: hidden;
+	position: relative;
+}
+
+.home-intro:before {
+	background: rgba(255, 204, 0, 0.2);
+	border-radius: 50%;
+	content: "";
+	display: block;
+	height: 1600px;
+	position: absolute;
+		top: -800px;
+		left: -1000px;
+		z-index: 1;
+	width: 1600px;
+}
+
+.home-intro .inner {
+	position: relative;
+		z-index: 2;
+}
+
+.home-intro p {
+	font-size: 1.5rem;
+	line-height: 2;
+	margin-left: 32%;
+	width: 68%;
+}
+
+.home-intro blockquote {
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+}
+
+.home-intro blockquote p {
+	font-size: 1.75rem;
+	line-height: 1.4;
+	margin-left: 0;
+	padding: 5px 0;
+	width: auto;
+}
+
+/* Banner CTA
+--------------------------------------------- */
+.banner-cta p {
+	font-family: 'Lexend Deca', sans-serif;
+	font-size: 2rem;
+	margin: 0;
+}
+
+.banner-cta .button {
+	font-size: 1.5rem;
+	padding: 22px 40px;
+}

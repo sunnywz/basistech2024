@@ -1,0 +1,61 @@
+{
+    "key": "group_65c3e09223041",
+    "title": "Portfolio",
+    "fields": [
+        {
+            "key": "field_65c3e09225bca",
+            "label": "Instructions",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Please populate the <strong>Featured Image<\/strong> with the full-color logo of this portfolio item.\r\n<br \/><br \/>\r\nSave this portfolio item and then go to <strong>Portfolio > Reorder<\/strong> to rearrange the portfolio items' order.\r\n<br \/><br \/>\r\nIf you would like to build out this page with content, the normal <strong>Imagery<\/strong> and <strong>Content<\/strong> modules are included below. Otherwise, please note this page will not be crawlable or searchable.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_65c3e4e8effff",
+            "label": "Portfolio Link",
+            "name": "portfolio_link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "If you would like the logo to link somewhere, enter that URL here. It can be this page's URL if you choose to build this out, or an external site.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "translations": "copy_once",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "portfolio"
+            }
+        ]
+    ],
+    "menu_order": 5,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1707336976
+}
