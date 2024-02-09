@@ -26,22 +26,28 @@ if ( !$header ) :
 				endwhile;
 			endif;
 		break;
-		
-		case 'page' :
-		default : 
-			if ( have_rows( 'page_imagery', 'option' ) ) :
-				while ( have_rows( 'page_imagery', 'option' ) ) : the_row(); 
-					$header = get_sub_field( 'default_page_header' );
-				endwhile;
-			endif;
-		break;
-	
+			
 	endswitch;
+endif;
+
+if ( !$header ) :
+	if ( have_rows( 'page_imagery', 'option' ) ) :
+		while ( have_rows( 'page_imagery', 'option' ) ) : the_row(); 
+			$header = get_sub_field( 'default_page_header' );
+		endwhile;
+	endif;
 endif;
 
 if($header) : ?>
 	<div class="graphic-header">
-		 <img class="simple-parallax" src="<?php echo $header['url']; ?>" alt="<?php echo $header['alt']; ?>">
+		<img class="simple-parallax" src="<?php echo $header['url']; ?>" alt="<?php echo $header['alt']; ?>">
+		<?php
+		if($header['caption']) : ?>
+			<p class="graphic-caption">
+				<?php echo $header['caption']; ?>
+			</p>
+		<?php
+		endif; ?> 
 	</div>
 <?php
 endif; ?>

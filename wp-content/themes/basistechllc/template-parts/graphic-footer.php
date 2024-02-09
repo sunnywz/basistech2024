@@ -26,22 +26,27 @@ if ( !$footer ) :
 				endwhile;
 			endif;
 		break;
-		
-		case 'page' :
-		default :
-			if ( have_rows( 'page_imagery', 'option' ) ) :
-				while ( have_rows( 'page_imagery', 'option' ) ) : the_row(); 
-					$footer = get_sub_field( 'default_page_footer' );
-				endwhile;
-			endif;
-		break;
-	
 	endswitch;
+endif;
+
+if ( !$footer ) :
+	if ( have_rows( 'page_imagery', 'option' ) ) :
+		while ( have_rows( 'page_imagery', 'option' ) ) : the_row(); 
+			$footer = get_sub_field( 'default_page_footer' );
+		endwhile;
+	endif;
 endif;
 
 if($footer) : ?>
 	<div class="graphic-footer">
-		 <img class="simple-parallax" src="<?php echo $footer['url']; ?>" alt="<?php echo $footer['alt']; ?>">
+		<img src="<?php echo $footer['url']; ?>" alt="<?php echo $footer['alt']; ?>">
+		<?php
+		if($footer['caption']) : ?>
+			<p class="graphic-caption">
+				<?php echo $footer['caption']; ?>
+			</p>
+		<?php
+		endif; ?> 
 	</div>
 <?php
 endif; ?>

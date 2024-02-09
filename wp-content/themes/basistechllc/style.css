@@ -404,7 +404,7 @@ optgroup,
 textarea {
 	color: #242b35;
 	font-family: 'Source Sans 3', sans-serif;	
-	font-size: 1rem;
+	font-size: 1.1rem;
 	line-height: 1.5;
 }
 
@@ -429,6 +429,7 @@ h1 {
 }
 
 p {
+	line-height: 2;
 	margin-bottom: 1.5em;
 }
 
@@ -488,6 +489,12 @@ big {
 	font-size: 125%;
 }
 
+@media screen and (max-width: 800px) {
+	h1 {
+		font-size: 2.5rem;
+	}
+}
+
 /* Elements
 --------------------------------------------- */
 body {
@@ -503,7 +510,7 @@ hr {
 
 ul,
 ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 1.5em 0em;
 }
 
 ul {
@@ -512,6 +519,10 @@ ul {
 
 ol {
 	list-style: decimal;
+}
+
+li {
+	margin-bottom: 0.75rem;
 }
 
 li > ul,
@@ -579,6 +590,7 @@ a:active {
 	background: #4f85f5;
 	border-radius: 50px;
 	color: #ffffff;
+	display: inline-block;
 	font-size: 1rem;
 	line-height: 1.2;
 	padding: 15px 25px;
@@ -830,11 +842,7 @@ textarea {
 	.site-header {
 		padding: 20px 0;
 	}
-	
-	.site-main {
-		margin-top: 74px;
-	}
-	
+		
 	.main-navigation ul {
 		display: none;
 	}
@@ -1318,11 +1326,25 @@ textarea {
 .graphic-header {
 	height: 250px;
 	overflow: hidden;
+	position: relative;
 }
 
 .graphic-header img {
+	max-width: none;
+	min-width: 100%;
 	vertical-align: middle;
-	width: 100%;
+}
+
+.graphic-caption {
+	background: rgba(255, 255, 255, 0.8);
+	font-size: 0.875rem;
+	font-weight: 700;
+	line-height: 1;
+	margin: 0;
+	padding: 5px;
+	position: absolute;
+		bottom: 5px;
+		left: 5px;
 }
 
 /*--------------------------------------------------------------
@@ -1335,49 +1357,74 @@ textarea {
 }
 
 .graphic-footer img {
-	clip-path: circle(100px at center);
+	mask-image: url('/wp-content/themes/basistechllc/assets/circle-mask.svg');
+	mask-position: center top;
+	mask-size: cover;
 	vertical-align: middle;
 	width: 100%;
 }
-
-/*
-.graphic-footer:before {
-	background: transparent;
-	clip-path: circle(50% at 50% 50%);
-	content: "";
-  	position: absolute;
-		top: 0;
-		right: -25vw;
-		bottom: -150vw;
-		left: -25vw;
-		z-index: 1;
-}
-
-.graphic-footer:after {
-	background: #ffffff;
-	content: "";
-  	position: absolute;
-		top: 0;
-		right: -25vw;
-		bottom: -150vw;
-		left: -25vw;
-		z-index: 1;
-}
-*/
 
 /*--------------------------------------------------------------
 # Page Builder
 --------------------------------------------------------------*/
 /* Block Basics
 --------------------------------------------- */
+/* standard spacing */
 .builder-block {
-	padding-top: 70px;
-	padding-bottom: 70px;
+	padding-top: 36px;
+	padding-bottom: 36px;
 }
 
+/* Custom spacing: both top and bottom */
+.block-spacing-double {
+	padding-top: 72px;
+	padding-bottom: 72px;
+}
+
+.block-spacing-half {
+	padding-top: 18px;
+	padding-bottom: 18px;
+}
+
+.block-spacing-none {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+/* Custom spacing: top */
+.block-spacing-top-double {
+	padding-top: 72px;
+}
+
+.block-spacing-top-half {
+	padding-top: 18px;
+}
+
+.block-spacing-top-none {
+	padding-top: 0;
+}
+
+/* Custom spacing: bottom */
+.block-spacing-bottom-double {
+	padding-bottom: 72px;
+}
+
+.block-spacing-bottom-half {
+	padding-bottom: 18px;
+}
+
+.block-spacing-bottom-none {
+	padding-bottom: 0;
+}
+
+/* section title: large or small */
 .section-title {
 	font-size: 4rem;
 	text-align: center;
+}
+
+.section-title.small {
+	font-size: 2rem;
 }
 
 /* Content Block
@@ -1424,15 +1471,15 @@ textarea {
 	flex-basis: calc(33% - 25px);
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 800px) {
 	.block-content-flex {
 		flex-wrap: wrap;
 	}
 	
 	.flex-item {
 		flex-basis: 100% !important;
-		margin-top: 25px;
-		margin-bottom: 25px;
+		margin-top: 10px;
+		margin-bottom: 10px;
 	}
 	
 	.flex-reverse .flex-item:first-child {
@@ -1495,8 +1542,44 @@ textarea {
 
 /* Events Block
 --------------------------------------------- */
+.events-text-list {
+	margin-top: 36px;
+}
 
+.event-text-list-item {
+	margin-bottom: 1rem;
+}
 
+.event-text-list-item ul {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.event-text-list-item li {
+	font-size: 1.5rem;
+	margin: 0 0.75rem 0 0;
+}
+
+.event-text-list-item li:before {
+	color: #242b35;
+	content: "|";
+	font-size: 1.5rem;
+	margin: 0 0.75rem 0 0;
+	vertical-align: middle;
+}
+
+.event-text-list-item li:first-child:before {
+	display: none;
+	margin: 0;
+}
+
+.event-text-list-item li.event-list-title {
+	font-size: 2rem;
+}
 
 /*--------------------------------------------------------------
 # Custom Blocks
@@ -1506,12 +1589,13 @@ textarea {
 --------------------------------------------- */
 .large-hero-text h1 {
 	font-size: 4rem;
-	margin-top: 0;
+	margin-top: 1.5rem;
 }
 
 .large-hero-text p {
 	font-family: 'Lexend Deca', sans-serif;
 	font-size: 2rem;
+	line-height: 1.5;
 }
 
 /* Home Page Intro (Yellow Circle, Larger Paragraphs)
@@ -1570,4 +1654,24 @@ textarea {
 .banner-cta .button {
 	font-size: 1.5rem;
 	padding: 22px 40px;
+}
+
+/*--------------------------------------------------------------
+# Single Events
+--------------------------------------------------------------*/
+.event-hero-flex {
+	margin-top: 36px;
+}
+
+.event-hero-image img {
+	vertical-align: middle;
+}
+
+.event-hero-details {
+	background: #f2f3f5;
+	padding: 20px;
+}
+
+.event-hero-details p {
+	line-height: 1.5;
 }

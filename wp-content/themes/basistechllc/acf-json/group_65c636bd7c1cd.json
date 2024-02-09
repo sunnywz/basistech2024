@@ -1,0 +1,191 @@
+{
+    "key": "group_65c636bd7c1cd",
+    "title": "Event Details",
+    "fields": [
+        {
+            "key": "field_65c636bd50fc9",
+            "label": "Event Start Date",
+            "name": "event_start_date",
+            "aria-label": "",
+            "type": "date_picker",
+            "instructions": "For sorting purposes. If a single day event, just enter that date here.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.3",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "m\/d\/Y",
+            "return_format": "Ymd",
+            "first_day": 0,
+            "translations": "copy_once"
+        },
+        {
+            "key": "field_65c6373450fca",
+            "label": "Event End Date",
+            "name": "event_end_date",
+            "aria-label": "",
+            "type": "date_picker",
+            "instructions": "For expiration purposes. If a single day event, just enter that date again.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.3",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "m\/d\/Y",
+            "return_format": "Ymd",
+            "first_day": 0,
+            "translations": "copy_once"
+        },
+        {
+            "key": "field_65c6374950fcb",
+            "label": "Display Date",
+            "name": "event_display_date",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "This is what gets displayed. You can enter the date like \"June 28, 2024\" or something like \"Every Saturday in May\".",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.4",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "translations": "translate",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65c63d1176d4e",
+            "label": "Event Location (Short)",
+            "name": "event_location_name",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "This will get displayed on list of upcoming events. Should be a short description like \"Somerville, MA\" or \"via Zoom\"",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "translations": "translate",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65c63d5d76d4f",
+            "label": "Event Location (Long)",
+            "name": "event_location",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "More details on the location: Name of venue, full address, link to Google Map, or webinar dial-in information, etc.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "translations": "translate",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_65c63db976d50",
+            "label": "Event Button URL",
+            "name": "event_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Use this to display a prominent button (for example, registration).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "translations": "copy_once",
+            "placeholder": ""
+        },
+        {
+            "key": "field_65c63de776d51",
+            "label": "Event Button Text",
+            "name": "event_btn_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Use this to display a prominent button (for example, registration).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "translations": "translate",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65c63e313c968",
+            "label": "Event Image",
+            "name": "event_logo",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "If you wish to display an image other than the featured image on this page, upload it here.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "translations": "copy_once",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "thumbnail"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "event"
+            }
+        ]
+    ],
+    "menu_order": 5,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1707490907
+}

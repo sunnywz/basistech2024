@@ -12,8 +12,9 @@ $order = get_sub_field( 'cb_mobile_order' ); ?>
 	
 		<?php
 		$section_title = get_sub_field( 'cb_section_title' );
+		$title_size = get_sub_field( 'cb_title_size' );
 		if($section_title) : ?>
-			<h2 class="section-title">
+			<h2 class="section-title <?php echo $title_size; ?>">
 				<?php echo $section_title; ?>
 			</h2>
 		<?php
