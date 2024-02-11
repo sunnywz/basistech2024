@@ -14,19 +14,42 @@
 	<?php get_template_part( 'template-parts/graphic', 'footer' ); ?>
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'basistechllc' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'basistechllc' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'basistechllc' ), 'basistechllc', '<a href="https://basistech.com/">BasisTech</a>' );
-				?>
-		</div><!-- .site-info -->
+		<div class="inner">
+		
+			<div class="footer-flex footer-top">
+				<div class="footer-menu">
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-2',
+							'menu_id'        => 'footer-menu',
+							'depth'			 => 2
+						)
+					);
+					?>
+				</div>
+				<div class="footer-colophon">
+					<?php echo get_field( 'footer_colophon', 'option' ); ?>
+				</div>
+			</div>
+			
+			<div class="footer-flex footer-bottom">
+				<div class="footer-copyright">
+					<?php echo get_field( 'footer_copyright', 'option' ); ?>
+				</div>
+				<div class="footer-logo">
+					<?php 
+					$footer_logo = get_field( 'footer_logo', 'option' );
+					if ( $footer_logo ) : ?>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+							<img src="<?php echo esc_url( $footer_logo['url'] ); ?>" alt="<?php echo esc_attr( $footer_logo['alt'] ); ?>" />
+						</a>
+					<?php 
+					endif; ?>
+				</div>
+			</div>
+		
+		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
