@@ -10,54 +10,72 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
 
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				basistechllc_posted_on();
-				basistechllc_posted_by();
+	<section class="archive-title">
+		<div class="inner">
+			<?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
+			<p class="post-date">
+				<?php 
+				if(function_exists('pll_current_language')) :
+					$language = pll_current_language();	
+					if($language == 'ja') :
+						the_date( 'Y年n月j日' );
+					else :
+						the_date( 'F d, Y' ); 
+					endif;
+					
+				else :
+					the_date( 'F d, Y' ); 
+					
+				endif;
 				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+			</p>
+		</div>
+	</section>
 
-	<?php basistechllc_post_thumbnail(); ?>
+	<?php 
+	if ( have_rows( 'page_content_rows' ) ):
+		while ( have_rows( 'page_content_rows' ) ) : the_row();
+			
+			if ( get_row_layout() == 'plain_content_block' ) :
+				get_template_part( 'template-parts/block', 'content' );
+			
+			elseif ( get_row_layout() == 'portfolio_block' ) :
+				get_template_part( 'template-parts/block', 'portfolio' );
+			
+			elseif ( get_row_layout() == 'events_block' ) :
+				get_template_part( 'template-parts/block', 'events' );
+			
+			endif;
+			
+		endwhile;
+	endif; ?>
 
-	<div class="entry-content">
-		<?php
-		the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'basistechllc' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post( get_the_title() )
-			)
-		);
+	<?php
+	$news_type = get_field('news_type');
+	if( $news_type == 'external' || $news_type == 'download' ) : ?>
+		<section class="builder-block">
+			<div class="inner">
+				<?php
+				switch($news_type) :
+					case 'external' :
+						the_excerpt();
+						$link = get_field('news_external_link');
+						echo '<p><a href="' . $link . '" target="_blank" class="button">';
+						_e('Learn More', 'basistechllc');
+						echo '</a></p>';
+						break;
+					case 'download' :
+						the_excerpt();
+						$link = get_field('news_document');
+						echo '<p><a href="' . $link . '" target="_blank" class="button">';
+						_e('Download', 'basistechllc');
+						echo '</a></p>';
+						break;
+				endswitch; ?>
+			</div>
+		</section>
+	<?php
+	endif; ?>
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'basistechllc' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php basistechllc_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

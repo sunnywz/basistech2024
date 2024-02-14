@@ -39,8 +39,8 @@ if ( !$header ) :
 endif;
 
 if($header) : ?>
-	<div class="graphic-header">
-		<img class="simple-parallax" src="<?php echo $header['url']; ?>" alt="<?php echo $header['alt']; ?>">
+	<div class="graphic-header" style="background-image: url(<?php echo $header['url']; ?>)">
+		<!--<img src="<?php echo $header['url']; ?>" alt="<?php echo $header['alt']; ?>">-->
 		<?php
 		if($header['caption']) : ?>
 			<p class="graphic-caption">

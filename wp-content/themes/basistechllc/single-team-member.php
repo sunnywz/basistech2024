@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all single posts
+ * The template for displaying all single team members
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
@@ -15,15 +15,10 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
+			
+			get_template_part( 'template-parts/hero', 'team' );
 
-			get_template_part( 'template-parts/content', get_post_type() );
-
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'basistechllc' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'basistechllc' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
+			get_template_part( 'template-parts/content', 'team' );
 
 		endwhile; // End of the loop.
 		?>
@@ -31,5 +26,4 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

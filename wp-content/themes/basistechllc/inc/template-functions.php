@@ -299,3 +299,20 @@ function custom_pagination($numpages = '', $pagerange = '', $paged='') {
     }
 
 }
+
+
+/*
+ *  Add class to main index.php so that we can style
+ *  archive and blog index the same way
+ */
+function blog_body_class($classes) {
+    if ( is_home() || is_search() || is_page_template( 'template-events.php')) {
+        $classes[] = 'archive';
+    }
+    elseif( is_page_template( 'template-team.php') ) {
+	    $classes[] = 'archive archive-light';
+    }
+    return $classes;
+}
+add_filter( 'body_class', 'blog_body_class' );
+

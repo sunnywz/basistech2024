@@ -3,7 +3,7 @@
 		<h1><?php echo get_the_title(); ?></h1>
 		<div class="event-hero-flex block-content-flex flex-67-33">
 			<?php
-			$event_image = get_field( 'event_logo', 'option' );
+			$event_image = get_field( 'event_logo' );
 			if($event_image) :
 				$event_image = $event_image['url'];
 			else :

@@ -35,7 +35,7 @@
             "name": "custom_classes",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "<a href=\"http:\/\/localhost:10048\/wp-content\/themes\/basistechllc\/instructions.html\" target=\"-blank\">Examples<\/a>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -90,5 +90,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1706468688
+    "modified": 1707856876
 }

@@ -34,6 +34,7 @@
 	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
 	button.addEventListener( 'click', function() {
 		siteNavigation.classList.toggle( 'toggled' );
+		button.classList.toggle( 'is-active' );
 
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
 			button.setAttribute( 'aria-expanded', 'false' );
@@ -51,8 +52,8 @@
 			button.setAttribute( 'aria-expanded', 'false' );
 		}
 	} );
-
-	// Get all the link elements within the menu.
+	
+// Get all the link elements within the menu.
 	const links = menu.getElementsByTagName( 'a' );
 
 	// Get all the link elements with children within the menu.
@@ -87,7 +88,7 @@
 
 		if ( event.type === 'touchstart' ) {
 			const menuItem = this.parentNode;
-			event.preventDefault();
+// 			event.preventDefault();
 			for ( const link of menuItem.parentNode.children ) {
 				if ( menuItem !== link ) {
 					link.classList.remove( 'focus' );
@@ -96,4 +97,5 @@
 			menuItem.classList.toggle( 'focus' );
 		}
 	}
+
 }() );

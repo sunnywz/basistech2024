@@ -1,9 +1,17 @@
-var image = document.getElementsByClassName('simple-parallax');
-new simpleParallax(image);
-
 jQuery(document).ready(function(){
 	
-	/* Clickable Divs */
+	clickableDiv();
+	
+});
+
+document.addEventListener('facetwp-loaded', function() {
+	
+	clickableDiv();
+	
+});
+
+/* Clickable Divs */
+function clickableDiv() {
 	jQuery(".clickable-div").click(function(e) {
 		var $location = jQuery(this).find("a").attr("href");
 		if($location) {
@@ -16,5 +24,4 @@ jQuery(document).ready(function(){
 		    return false;
 	    }
 	});
-	
-});
+}

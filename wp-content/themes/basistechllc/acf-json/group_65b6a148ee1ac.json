@@ -1,6 +1,6 @@
 {
     "key": "group_65b6a148ee1ac",
-    "title": "Imagery",
+    "title": "Header and Footer Graphics",
     "fields": [
         {
             "key": "field_65b6a14989d58",
@@ -8,7 +8,7 @@
             "name": "page_header",
             "aria-label": "",
             "type": "image",
-            "instructions": "Leave blank to use defaults defined in Site Options",
+            "instructions": "Leave blank to use default image defined in Site Options",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -34,7 +34,7 @@
             "name": "page_footer",
             "aria-label": "",
             "type": "image",
-            "instructions": "Leave blank to use defaults defined in Site Options",
+            "instructions": "Leave blank to use default image defined in Site Options",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -53,6 +53,84 @@
             "max_size": "",
             "mime_types": "",
             "preview_size": "thumbnail"
+        },
+        {
+            "key": "field_65ca30ba315eb",
+            "label": "Footer CTA",
+            "name": "footer_cta",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_65ca30db315ec",
+                    "label": "CTA Text",
+                    "name": "cta_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "translations": "translate",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_65ca30e4315ed",
+                    "label": "CTA Link",
+                    "name": "cta_link",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "translations": "copy_once",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_65ca30f2315ee",
+                    "label": "New Window?",
+                    "name": "new_window",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "translations": "copy_once",
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -83,6 +161,13 @@
                 "operator": "==",
                 "value": "portfolio"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "team-member"
+            }
         ]
     ],
     "menu_order": 10,
@@ -94,5 +179,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1706468695
+    "modified": 1707749670
 }

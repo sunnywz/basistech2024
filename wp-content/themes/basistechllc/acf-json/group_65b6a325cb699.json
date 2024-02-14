@@ -449,6 +449,16 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "page"
+            },
+            {
+                "param": "page_template",
+                "operator": "!=",
+                "value": "template-events.php"
+            },
+            {
+                "param": "page_template",
+                "operator": "!=",
+                "value": "template-team.php"
             }
         ],
         [
@@ -477,5 +487,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1707492989
+    "modified": 1707873598
 }
