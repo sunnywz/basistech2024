@@ -44,16 +44,18 @@
 	} );
 
 	// Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
-	document.addEventListener( 'click', function( event ) {
-		const isClickInside = siteNavigation.contains( event.target );
-
-		if ( ! isClickInside ) {
-			siteNavigation.classList.remove( 'toggled' );
-			button.setAttribute( 'aria-expanded', 'false' );
-		}
-	} );
+	document.addEventListener('click', function(event) {
+	    const isClickInside = siteNavigation.contains(event.target);
+	    const isAnchorTag = event.target.tagName.toLowerCase() === 'a';
 	
-// Get all the link elements within the menu.
+	    if (!isClickInside || isAnchorTag) {
+	        siteNavigation.classList.remove('toggled');
+	        button.setAttribute('aria-expanded', 'false');
+	        button.classList.toggle( 'is-active' );
+	    }
+	});
+	
+	// Get all the link elements within the menu.
 	const links = menu.getElementsByTagName( 'a' );
 
 	// Get all the link elements with children within the menu.

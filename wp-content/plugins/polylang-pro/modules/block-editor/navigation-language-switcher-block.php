@@ -59,6 +59,8 @@ class PLL_Navigation_Language_Switcher_Block extends PLL_Abstract_Language_Switc
 			'fontSize',
 			'customFontSize',
 			'style',
+			'overlayMenu',
+			'isResponsive', // Backward compatibility.
 		);
 	}
 
@@ -86,8 +88,9 @@ class PLL_Navigation_Language_Switcher_Block extends PLL_Abstract_Language_Switc
 		$language_navigation_output = '';
 
 		$top_level_item = $this->find_current_lang_item( $switcher_items );
+		$is_submenu     = $attributes['dropdown'] && $top_level_item;
 
-		if ( $attributes['dropdown'] && $top_level_item ) {
+		if ( $is_submenu ) {
 			$language_navigation_output = $this->render_link_item( $top_level_item, $attributes, $block, $switcher_items );
 		} else {
 			foreach ( $switcher_items as $switcher_item ) {
@@ -103,11 +106,19 @@ class PLL_Navigation_Language_Switcher_Block extends PLL_Abstract_Language_Switc
 		// Adds is-layout-flex in admin for space between language items.
 		$is_layout_flex = ! empty( $attributes['admin_render'] ) ? ' is-layout-flex' : '';
 
+		/*
+		 * This is for backwards compatibility after `isResponsive` attribute has been removed.
+		 * Copied from `render_block_core_navigation()`.
+		 */
+		$has_old_responsive_attribute = $is_submenu && ! empty( $block->context['isResponsive'] );
+		$is_responsive_menu           = isset( $block->context['overlayMenu'] ) && 'never' !== $block->context['overlayMenu'] && $is_submenu || $has_old_responsive_attribute;
+
 		// As WordPress won't render our polylang/navigation-language-switcher (see: https://github.com/WordPress/WordPress/blob/5.9/wp-includes/blocks/navigation.php#L488-L491)
 		// We have to do it ourselves.
 		return sprintf(
-			'<ul class="wp-block-navigation__container%s">%s</ul>',
+			'<ul class="wp-block-navigation__container%s%s wp-block-navigation">%s</ul>',
 			$is_layout_flex,
+			$is_responsive_menu ? ' is-responsive' : '',
 			$language_navigation_output
 		);
 	}
@@ -199,14 +210,16 @@ class PLL_Navigation_Language_Switcher_Block extends PLL_Abstract_Language_Switc
 		$html = '<li ' . $wrapper_attributes . '>';
 
 		$menu_item_classes = array( 'wp-block-navigation-item__content' );
+
 		if ( $has_submenu ) {
 			$menu_item_classes[] = 'current-menu-ancestor';
 		}
-		if ( ! $open_on_click ) {
 
+		if ( ! $open_on_click ) {
 			// Start appending HTML attributes to anchor tag.
 			$html .= '<a class="' . implode( ' ', $menu_item_classes ) . '"';
-			if ( ! $has_submenu ) { // Don't create an hyperlink for the parent item.
+
+			if ( ! empty( $switcher_item['url'] ) ) {
 				$html .= ' href="' . esc_url( $switcher_item['url'] ) . '"';
 			}
 
@@ -224,21 +237,30 @@ class PLL_Navigation_Language_Switcher_Block extends PLL_Abstract_Language_Switc
 
 			$html .= $this->get_item_title( $switcher_item, $attributes );
 
-			if ( $show_submenu_indicators ) {
-				$html .= '<span class="wp-block-navigation__submenu-icon">' . block_core_navigation_submenu_render_submenu_icon() . '</span>';
-			}
-
 			$html .= '</a>'; // End anchor tag content.
+
+			if ( $show_submenu_indicators ) {
+				// Render submenu icon in a button next to the anchor tag for accessibility.
+				$menu_item_classes[] = 'wp-block-navigation__submenu-icon';
+				$menu_item_classes[] = 'wp-block-navigation-submenu__toggle';
+
+				$html .= '<button aria-label="' . esc_attr( $aria_label ) . '" class="' . implode( ' ', $menu_item_classes ) . '" aria-expanded="false">';
+
+				$html .= block_core_navigation_submenu_render_submenu_icon();
+
+				$html .= '</button>';
+			}
 		} else {
 			$menu_item_classes[] = 'wp-block-navigation-submenu__toggle';
+
 			// If menus open on click, we render the parent as a button.
 			$html .= '<button aria-label="' . $aria_label . '" class="' . implode( ' ', $menu_item_classes ) . '" aria-expanded="false">';
 
 			$html .= $this->get_item_title( $switcher_item, $attributes );
 
-			$html .= '<span class="wp-block-navigation__submenu-icon">' . block_core_navigation_submenu_render_submenu_icon() . '</span>';
-
 			$html .= '</button>';
+
+			$html .= '<span class="wp-block-navigation__submenu-icon">' . block_core_navigation_submenu_render_submenu_icon() . '</span>';
 		}
 
 		if ( $has_submenu ) {

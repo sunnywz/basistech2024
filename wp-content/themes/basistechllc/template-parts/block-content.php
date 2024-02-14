@@ -4,7 +4,11 @@ $classes = get_sub_field( 'block_basics_custom_classes' );
 $anchor = get_sub_field( 'block_basics_section_anchor' );
 $mode = get_sub_field( 'cb_display_mode' );
 $container_class = 'inner';
-if($mode == 'narrow') $container_class = 'inner-skinny';
+if($mode == 'narrow') :
+	$container_class = 'inner-skinny';
+elseif($mode == 'medium') :
+	$container_class = 'inner-medium';
+endif;
 $order = get_sub_field( 'cb_mobile_order' ); ?>
 
 <section class="builder-block block-content background-<?php echo $bgcolor . ' ' . $classes; ?>" <?php if($anchor) echo 'id="' . $anchor . '"'; ?>>
@@ -20,10 +24,10 @@ $order = get_sub_field( 'cb_mobile_order' ); ?>
 		<?php
 		endif;
 		
-		if($mode == 'single' || $mode == 'narrow') :
+		if($mode == 'single' || $mode == 'narrow' || $mode == 'medium') :
 			echo get_sub_field( 'cb_content' );
 		else : ?>
-			<div class="block-content-flex flex-<?php echo $mode; ?>">
+			<div class="block-content-flex flex-<?php echo $mode; ?> flex-<?php echo $order; ?>">
 				<div class="flex-item">
 					<?php echo get_sub_field( 'cb_content' ); ?>
 				</div>

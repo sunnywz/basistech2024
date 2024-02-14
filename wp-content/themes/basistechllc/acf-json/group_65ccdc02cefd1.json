@@ -1,0 +1,82 @@
+{
+    "key": "group_65ccdc02cefd1",
+    "title": "Page Title Options",
+    "fields": [
+        {
+            "key": "field_65ccdc02ff052",
+            "label": "Display Page Title?",
+            "name": "display_page_title",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "translations": "copy_once",
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_65ccdc25ff053",
+            "label": "Alternate Page Title",
+            "name": "alternate_page_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Leave blank to use standard page title",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_65ccdc02ff052",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "translations": "translate",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "default"
+            }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-team.php"
+            }
+        ]
+    ],
+    "menu_order": 15,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1707924644
+}

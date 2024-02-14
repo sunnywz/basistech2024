@@ -810,6 +810,11 @@ const addParametersToRequest = ( options ) => {
  * @returns {string}
  */
 function getCurrentLanguageSlug(){
+	if ( (0,external_lodash_.isUndefined)( (0,external_this_wp_data_.select)( settings_MODULE_CORE_EDITOR_KEY ) ) ) {
+		// Return ASAP to avoid issues later.
+		return pll_block_editor_plugin_settings.lang.slug;
+	}
+
 	// Post block editor case.
 	const postLanguage = (0,external_this_wp_data_.select)( settings_MODULE_CORE_EDITOR_KEY ).getEditedPostAttribute( 'lang' );
 	if ( ! (0,external_lodash_.isUndefined)( postLanguage ) && postLanguage ) {

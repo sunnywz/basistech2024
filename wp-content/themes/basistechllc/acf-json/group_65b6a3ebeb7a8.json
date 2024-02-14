@@ -18,7 +18,8 @@
             },
             "choices": {
                 "white": "White",
-                "blue": "Blue"
+                "blue": "Blue",
+                "dark-blue": "Dark Blue"
             },
             "default_value": "white",
             "return_format": "value",
@@ -90,5 +91,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1707856876
+    "modified": 1707919088
 }

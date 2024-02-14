@@ -433,6 +433,10 @@ p {
 	margin-bottom: 1.5em;
 }
 
+p.remove-bottom-margin {
+	margin-bottom: 0;
+}
+
 dfn,
 cite,
 em,
@@ -489,6 +493,19 @@ big {
 	font-size: 125%;
 }
 
+@media screen and (max-width: 1024px) {
+	blockquote {
+		margin: 0.5rem 0 1.5rem 0;
+	}
+	
+	blockquote p {
+		font-size: 1.5rem;
+		line-height: 1.4;
+		margin-top: 0;
+		margin-bottom: 0.5rem;
+	}
+}
+
 @media screen and (max-width: 800px) {
 	h1 {
 		font-size: 2.5rem;
@@ -526,6 +543,7 @@ ol {
 }
 
 li {
+	line-height: 2;
 	margin-bottom: 0.75rem;
 }
 
@@ -689,7 +707,7 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-	border: 0;
+	border: 1px solid #242d4e;
 	border-radius: 50px;
 	color: rgba(36, 45, 79, 0.7);
 	padding: 11px 22px;
@@ -726,6 +744,12 @@ select {
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
+
+/* Sticky Header anchor links compensation
+--------------------------------------------- */
+html {
+	scroll-padding-top: 102px;
+}
 
 /* Navigation
 --------------------------------------------- */
@@ -1328,6 +1352,15 @@ select {
 	width: 1200px;
 }
 
+.inner-medium {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 100%;
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 1000px;
+}
+
 .inner-skinny {
 	margin-left: auto;
 	margin-right: auto;
@@ -1612,6 +1645,11 @@ select {
 }
 
 /* Custom spacing: both top and bottom */
+.block-spacing-mega {
+	padding-top: 154px;
+	padding-bottom: 154px;
+}
+
 .block-spacing-double {
 	padding-top: 72px;
 	padding-bottom: 72px;
@@ -1677,6 +1715,11 @@ select {
 	.section-title.small {
 		font-size: 1.75rem;
 	}
+	
+	.block-spacing-mega {
+		padding-top: 72px;
+		padding-bottom: 72px;
+	}
 }
 
 /* Content Block
@@ -1687,8 +1730,12 @@ select {
 	justify-content: space-between;
 }
 
-.center-vertically .block-content-flex {
+.valign-center .block-content-flex {
 	align-items: center;
+}
+
+.valign-bottom .block-content-flex {
+	align-items: flex-end;
 }
 
 .flex-33-67 .flex-item:first-child {
@@ -1987,10 +2034,6 @@ select {
 		margin-top: 2rem;
 		margin-bottom: 2rem;
 	}
-	
-	.home-intro blockquote p {
-		font-size: 1.5rem;
-	}
 }
 
 /* Banner CTA
@@ -2278,5 +2321,52 @@ body.archive.archive-light {
 	.team-hero-content h2,
 	.team-hero-content h3 {
 		display: none;
+	}
+}
+
+/*--------------------------------------------------------------
+# About Page
+--------------------------------------------------------------*/
+.about-circle .block-content-flex .flex-item:first-child {
+	margin-top: -100px;
+}
+
+.about-circle:before {
+	background: rgba(255, 204, 0, 0.2);
+	border-radius: 50%;
+	content: "";
+	display: block;
+	height: 1800px;
+	position: absolute;
+		top: 450px;
+		left: -900px;
+		z-index: 1;
+	width: 1800px;
+}
+
+.builder-block:not(.background-white),
+.graphic-footer,
+.site-footer,
+.builder-block.background-white .inner {
+	position: relative;
+		z-index: 2;
+}
+
+.sidebar-first-column .block-content-flex .flex-item:first-child,
+.sidebar-last-column .block-content-flex .flex-item:last-child {
+	background: #f2f3f5;
+	padding: 20px;
+}
+
+.sidebar-first-column .block-content-flex .flex-item:first-child p,
+.sidebar-last-column .block-content-flex .flex-item:last-child p {
+	line-height: 1.6;
+}
+
+@media screen and (max-width: 1024px) {
+	.about-circle:before {
+		height: 900px;
+		width: 900px;
+		left: -450px;
 	}
 }

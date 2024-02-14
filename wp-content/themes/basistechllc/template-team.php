@@ -16,7 +16,7 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 			
-			get_template_part( 'template-parts/hero', 'team-list' );
+			get_template_part( 'template-parts/hero', 'title' );
 			
 			get_template_part( 'template-parts/content', 'team' );
 

@@ -7,12 +7,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/polylang/polylang.git",
-                "reference": "a7e301c7219098568feace09fc14cf791d9b5242"
+                "reference": "c75dac4953c2f1f892835d7aeb6c5618f81fdf2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/polylang/polylang/zipball/a7e301c7219098568feace09fc14cf791d9b5242",
-                "reference": "a7e301c7219098568feace09fc14cf791d9b5242",
+                "url": "https://api.github.com/repos/polylang/polylang/zipball/c75dac4953c2f1f892835d7aeb6c5618f81fdf2e",
+                "reference": "c75dac4953c2f1f892835d7aeb6c5618f81fdf2e",
                 "shasum": ""
             },
             "require": {
@@ -27,7 +27,7 @@
                 "wpsyntex/polylang-phpstan": "^1.0",
                 "yoast/wp-test-utils": "^1.0.0"
             },
-            "time": "2023-12-11T10:29:17+00:00",
+            "time": "2024-02-06T08:33:47+00:00",
             "type": "wordpress-plugin",
             "installation-source": "dist",
             "autoload": {

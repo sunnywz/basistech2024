@@ -134,6 +134,11 @@ function basistechllc_my_mce_before_init( $settings ) {
 			'selector' => 'a',
 			'classes' => 'button'
 		),
+		array(
+			'title' => 'Remove Bottom Margin',
+			'selector' => 'p',
+			'classes' => 'remove-bottom-margin'
+		),
 	);
     $settings['style_formats'] = json_encode( $style_formats );
     return $settings;

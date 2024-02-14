@@ -80,13 +80,11 @@ class PLL_Collect_Linked_Posts {
 			$linked_ids = $this->get_post_ids_from_block_content( $post->post_content );
 		} elseif ( $this->options['media_support'] ) {
 			$linked_ids = $this->get_medias_from_html_content( $post->post_content );
-
-			if ( has_post_thumbnail( $post->ID ) ) {
-				$linked_ids[] = get_post_thumbnail_id( $post->ID );
-			}
 		}
 
-		$post_id = $post->ID;
+		if ( $this->options['media_support'] && has_post_thumbnail( $post->ID ) ) {
+			$linked_ids[] = get_post_thumbnail_id( $post->ID );
+		}
 
 		$linked_ids = array_filter( $linked_ids ); // Clean up the array.
 
@@ -98,7 +96,7 @@ class PLL_Collect_Linked_Posts {
 		 * @param int[] $linked_ids Post ids attached to a post (could be in content or in post metas).
 		 * @param int   $post_id    The post id the post we get other post from.
 		 */
-		$linked_ids = apply_filters( 'pll_collect_post_ids', $linked_ids, $post_id );
+		$linked_ids = apply_filters( 'pll_collect_post_ids', $linked_ids, $post->ID );
 
 		return array_unique( $linked_ids );
 	}

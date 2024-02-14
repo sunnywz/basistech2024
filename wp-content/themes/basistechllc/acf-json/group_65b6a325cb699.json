@@ -109,6 +109,7 @@
                             },
                             "choices": {
                                 "single": "Single Column",
+                                "medium": "Single Column (Somewhat Narrow)",
                                 "narrow": "Single Column (Narrow)",
                                 "33-67": "Two Column (33\/67)",
                                 "40-60": "Two Column (40\/60)",
@@ -487,5 +488,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1707873598
+    "modified": 1707919275
 }

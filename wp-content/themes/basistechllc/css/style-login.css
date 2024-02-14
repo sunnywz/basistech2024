@@ -1,0 +1,73 @@
+body {
+	background: #242d4e;
+}
+
+.login h1 a {
+	background: url('/wp-content/uploads/2024/02/BasisTech-text-white-bamboo-white.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 100%;
+}
+
+a,
+a:hover {
+	color: #242d4e;
+}
+
+.login #backtoblog a, 
+.login #nav a {
+	color: #ffffff;
+}
+
+.login #backtoblog a:hover,
+.login #nav a:hover {
+	color: #4f85f5;
+}
+
+.wp-core-ui .button-primary,
+.wp-core-ui .button, 
+.wp-core-ui .button-secondary {
+	border: 2px solid #4f85f5;
+	border-radius: 50px !important;
+	background: #4f85f5;
+	color: #ffffff;
+	text-transform: uppercase;
+}
+
+.wp-core-ui .button-primary:active,
+.wp-core-ui .button-primary:focus,
+.wp-core-ui .button-primary:hover,
+.wp-core-ui .button:active, 
+.wp-core-ui .button-secondary:active,
+.wp-core-ui .button:focus, 
+.wp-core-ui .button-secondary:focus,
+.wp-core-ui .button:hover, 
+.wp-core-ui .button-secondary:hover {
+	background: #242d4e;
+	border: 2px solid #00597e;
+	color: #ffffff;
+	outline: 0 !important;
+}
+
+input[type="checkbox"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime-local"]:focus, input[type="datetime"]:focus, input[type="email"]:focus, input[type="month"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="radio"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="week"]:focus, select:focus, textarea:focus, .login .button.wp-hide-pw:focus {
+	border-color: #f86e4d;
+	box-shadow: 0 0 0 1px #f86e4d !important;
+	outline: 0 !important;
+}
+ 
+.language-switcher label .dashicons {
+	color: #ffffff;
+}
+
+.login .button.wp-hide-pw {
+	border: 2px solid transparent;
+}
+
+.login .button.wp-hide-pw:hover {
+	border: 2px solid #00597e;
+}
+
+.login .button.wp-hide-pw .dashicons {
+	color: #00597e !important;
+}

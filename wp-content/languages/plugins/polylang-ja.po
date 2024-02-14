@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the Plugins - Polylang - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-02 11:00:28+0000\n"
+"PO-Revision-Date: 2024-01-29 13:45:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: GlotPress/4.0.0-alpha.11\n"
+"X-Generator: GlotPress/4.0.0-beta.2\n"
 "Language: ja_JP\n"
 "Project-Id-Version: Plugins - Polylang - Stable (latest release)\n"
 
@@ -1883,7 +1883,7 @@ msgstr "ブラウザーの言語の検出"
 #. when the option is not active
 #: settings/settings-url.php:195
 msgid "Example: %1$s instead of %2$s"
-msgstr "例: %1$s ではなく %2$s"
+msgstr "例: %2$s の代わりに %1$s"
 
 #: modules/site-health/admin-site-health.php:160 settings/settings-url.php:183
 msgid "The front page URL contains the language code instead of the page name or page id"
