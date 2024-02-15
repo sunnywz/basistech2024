@@ -17,5 +17,21 @@
 		?>
 	</p>
 	<p><?php echo get_the_excerpt(); ?></p>
-	<p><a href="<?php echo get_the_permalink(); ?>" class="more"><?php _e('Continue reading'); ?></a></p>
+	<?php
+	$news_type = get_field('news_type');
+	if( $news_type == 'external' ) :
+		$link = get_field('news_external_link');
+		$target = "_blank";
+	elseif( $news_type == 'download' ) :
+		$link = get_field('news_document');
+		$target = "_self";
+	else :
+		$link = get_the_permalink();
+		$target = "_self";
+	endif; ?>
+	<p>
+		<a href="<?php echo $link; ?>" class="more" target="<?php echo $target; ?>">
+			<?php _e('Continue reading'); ?>
+		</a>
+	</p>
 </div>
