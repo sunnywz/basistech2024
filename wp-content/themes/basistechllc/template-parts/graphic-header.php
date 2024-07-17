@@ -26,6 +26,22 @@ if ( !$header ) :
 				endwhile;
 			endif;
 		break;
+		
+		case 'recipes' :
+			if ( have_rows( 'recipe_imagery', 'option' ) ) :
+				while ( have_rows( 'recipe_imagery', 'option' ) ) : the_row(); 
+					$header = get_sub_field( 'default_recipe_header' );
+				endwhile;
+			endif;
+		break;
+		
+		case 'menus' :
+			if ( have_rows( 'menu_imagery', 'option' ) ) :
+				while ( have_rows( 'menu_imagery', 'option' ) ) : the_row(); 
+					$header = get_sub_field( 'default_menu_header' );
+				endwhile;
+			endif;
+		break;
 			
 	endswitch;
 endif;
@@ -39,12 +55,23 @@ if ( !$header ) :
 endif;
 
 if($header) : ?>
-	<div class="graphic-header" style="background-image: url(<?php echo $header['url']; ?>)">
-		<!--<img src="<?php echo $header['url']; ?>" alt="<?php echo $header['alt']; ?>">-->
+	<div class="graphic-header parallax" style="background-image: url(<?php echo $header['url']; ?>)">
 		<?php
-		if($header['caption']) : ?>
+		$artist = get_field('artist_name', $header['id']);
+		if($artist) :
+			$artist_url = get_field('artist_url', $header['id']); ?>
 			<p class="graphic-caption">
-				<?php echo $header['caption']; ?>
+				<?php 
+				if($artist_url) : ?>
+					<a href="<?php echo $artist_url; ?>" target="_blank">
+				<?php
+				endif; ?>
+						<?php echo $artist; ?>
+				<?php 
+				if($artist_url) : ?>
+					</a>
+				<?php
+				endif; ?>
 			</p>
 		<?php
 		endif; ?> 

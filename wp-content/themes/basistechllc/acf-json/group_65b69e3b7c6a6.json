@@ -17,14 +17,15 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_65c0fa3cff1e1",
             "label": "Header Logo",
             "name": "header_logo",
             "aria-label": "",
-            "type": "image",
+            "type": "url",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -33,17 +34,9 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
-            "library": "all",
+            "default_value": "",
             "translations": "copy_once",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "medium"
+            "placeholder": ""
         },
         {
             "key": "field_65c8e2ee82139",
@@ -60,7 +53,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_65c8e3088213a",
@@ -131,6 +125,102 @@
             "delay": 0
         },
         {
+            "key": "field_65cf774e569a3",
+            "label": "Social Channels",
+            "name": "social_channels",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_65cf7784569a6",
+                    "label": "Name",
+                    "name": "social_name",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "translations": "translate",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_65cf774e569a3"
+                },
+                {
+                    "key": "field_65cf775c569a4",
+                    "label": "Icon",
+                    "name": "social_icon",
+                    "aria-label": "",
+                    "type": "font-awesome",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "icon_sets": [
+                        "solid",
+                        "regular",
+                        "brands"
+                    ],
+                    "custom_icon_set": "",
+                    "default_label": "",
+                    "default_value": "",
+                    "save_format": "element",
+                    "allow_null": 0,
+                    "show_preview": 1,
+                    "enqueue_fa": 1,
+                    "translations": "copy_once",
+                    "fa_live_preview": "",
+                    "choices": [],
+                    "parent_repeater": "field_65cf774e569a3"
+                },
+                {
+                    "key": "field_65cf7779569a5",
+                    "label": "URL",
+                    "name": "social_url",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "translations": "copy_once",
+                    "placeholder": "",
+                    "parent_repeater": "field_65cf774e569a3"
+                }
+            ]
+        },
+        {
             "key": "field_65b69e3bfb5f3",
             "label": "Default Imagery",
             "name": "",
@@ -145,7 +235,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_65b69e4efb5f4",
@@ -317,8 +408,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "",
-                    "library": "",
+                    "return_format": "array",
+                    "library": "all",
                     "translations": "copy_once",
                     "min_width": "",
                     "min_height": "",
@@ -343,8 +434,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "",
-                    "library": "",
+                    "return_format": "array",
+                    "library": "all",
                     "translations": "copy_once",
                     "min_width": "",
                     "min_height": "",
@@ -428,6 +519,146 @@
             ]
         },
         {
+            "key": "field_66969974865c4",
+            "label": "Default Recipe Imagery",
+            "name": "recipe_imagery",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_66969974865c5",
+                    "label": "Header Image",
+                    "name": "default_recipe_header",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "translations": "copy_once",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium"
+                },
+                {
+                    "key": "field_66969974865c6",
+                    "label": "Footer Image",
+                    "name": "default_recipe_footer",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "translations": "copy_once",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium"
+                }
+            ]
+        },
+        {
+            "key": "field_66969997865c7",
+            "label": "Default Menu Imagery",
+            "name": "menu_imagery",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_66969997865c8",
+                    "label": "Header Image",
+                    "name": "default_menu_header",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "translations": "copy_once",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium"
+                },
+                {
+                    "key": "field_66969997865c9",
+                    "label": "Footer Image",
+                    "name": "default_menu_footer",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "translations": "copy_once",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium"
+                }
+            ]
+        },
+        {
             "key": "field_65cbca59cf48b",
             "label": "Breadcrumbs",
             "name": "",
@@ -442,7 +673,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_65cbca66cf48c",
@@ -450,7 +682,7 @@
             "name": "all_events_page",
             "aria-label": "",
             "type": "page_link",
-            "instructions": "",
+            "instructions": "Controls the \"All Events\" button single Event pages.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -476,7 +708,7 @@
             "name": "all_team_page",
             "aria-label": "",
             "type": "page_link",
-            "instructions": "",
+            "instructions": "Controls the \"View All\" button single Team pages.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -502,7 +734,7 @@
             "name": "team_page_title",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Header for team list below team member bio on single team pages",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -536,5 +768,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1707875607
+    "modified": 1721146403
 }

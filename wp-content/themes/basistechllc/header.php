@@ -32,6 +32,9 @@
 </head>
 
 <body <?php body_class(); ?>>
+	
+<?php if ( function_exists( 'gtm4wp_the_gtm_tag' ) ) { gtm4wp_the_gtm_tag(); } ?>
+ 
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'basistechllc' ); ?></a>
@@ -44,7 +47,7 @@
 					$header_logo = get_field( 'header_logo', 'option' );
 					if ( $header_logo ) : ?>
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-							<img src="<?php echo esc_url( $header_logo['url'] ); ?>" alt="<?php echo esc_attr( $header_logo['alt'] ); ?>" />
+							<img src="<?php echo esc_url( $header_logo ); ?>" alt="<?php echo get_bloginfo('name'); ?>" />
 						</a>
 					<?php 
 					endif; ?>

@@ -50,7 +50,6 @@ function basistechllc_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'basistechllc' ),
-			'menu-2' => esc_html__( 'Footer', 'basistechllc' ),
 		)
 	);
 
@@ -112,12 +111,12 @@ add_action( 'widgets_init', 'basistechllc_widgets_init' );
  */
 function basistechllc_scripts() {
     wp_enqueue_style( 'basistechllc-fonts', 'https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;700&family=Source+Sans+3:wght@400;700&display=swap', array(), null);
-	wp_enqueue_style( 'basistechllc-pluginscss', get_template_directory_uri() . '/css/plugins.css', array(), '1.0' );
-	wp_enqueue_style( 'basistechllc-style', get_stylesheet_uri(), array(), '2.35' );
+	wp_enqueue_style( 'basistechllc-pluginscss', get_template_directory_uri() . '/css/plugins.css', array(), '3.0' );
+	wp_enqueue_style( 'basistechllc-style', get_stylesheet_uri(), array(), '8.06' );
 	
-	wp_enqueue_script( 'basistechllc-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '1.0', true );
-	wp_enqueue_script( 'basistechllc-pluginsjs', get_template_directory_uri() . '/js/plugins.js', array('jquery'), '1.01' );
-	wp_enqueue_script( 'basistechllc-globaljs', get_template_directory_uri() . '/js/global.js', array('jquery', 'basistechllc-pluginsjs'), '1.02', true );
+	wp_enqueue_script( 'basistechllc-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '3.75', true );
+	wp_enqueue_script( 'basistechllc-pluginsjs', get_template_directory_uri() . '/js/plugins.js', array('jquery'), '3.8' );
+	wp_enqueue_script( 'basistechllc-globaljs', get_template_directory_uri() . '/js/global.js', array('jquery', 'basistechllc-pluginsjs'), '3.91', true );
 }
 add_action( 'wp_enqueue_scripts', 'basistechllc_scripts' );
 

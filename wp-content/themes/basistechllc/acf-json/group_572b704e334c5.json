@@ -3,6 +3,27 @@
     "title": "Team Member Details",
     "fields": [
         {
+            "key": "field_66182e0f5a33c",
+            "label": "Last Name",
+            "name": "last_name",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Used for sorting feature",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "translations": "translate",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_572b7055958c8",
             "label": "Title",
             "name": "management_title",
@@ -140,5 +161,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1707858043
+    "modified": 1712860708
 }

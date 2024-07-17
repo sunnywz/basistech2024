@@ -8,7 +8,7 @@
             "name": "page_header",
             "aria-label": "",
             "type": "image",
-            "instructions": "Leave blank to use default image defined in Site Options",
+            "instructions": "1800x450. Leave blank to use default image defined in Site Options",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -34,7 +34,7 @@
             "name": "page_footer",
             "aria-label": "",
             "type": "image",
-            "instructions": "Leave blank to use default image defined in Site Options",
+            "instructions": "1800x600. Leave blank to use default image defined in Site Options",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -179,5 +179,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1707749670
+    "modified": 1708026242
 }

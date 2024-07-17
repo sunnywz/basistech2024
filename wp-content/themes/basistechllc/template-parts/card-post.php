@@ -1,4 +1,4 @@
-<div class="card clickable-div">
+<div class="card clickable-div wow animate__fadeIn">
 	<h3><?php echo get_the_title(); ?></h3>
 	<p class="post-date">
 		<?php 
@@ -31,7 +31,7 @@
 	endif; ?>
 	<p>
 		<a href="<?php echo $link; ?>" class="more" target="<?php echo $target; ?>">
-			<?php _e('Continue reading'); ?>
+			<?php _e('Continue reading', 'basistechllc'); ?>
 		</a>
 	</p>
 </div>

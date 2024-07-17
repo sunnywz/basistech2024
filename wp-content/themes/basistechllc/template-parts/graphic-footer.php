@@ -26,6 +26,23 @@ if ( !$footer ) :
 				endwhile;
 			endif;
 		break;
+		
+		case 'recipes' :
+			if ( have_rows( 'recipe_imagery', 'option' ) ) :
+				while ( have_rows( 'recipe_imagery', 'option' ) ) : the_row(); 
+					$footer = get_sub_field( 'default_recipe_footer' );
+				endwhile;
+			endif;
+		break;
+		
+		case 'menus' :
+			if ( have_rows( 'menu_imagery', 'option' ) ) :
+				while ( have_rows( 'menu_imagery', 'option' ) ) : the_row(); 
+					$footer = get_sub_field( 'default_menu_footer' );
+				endwhile;
+			endif;
+		break;
+		
 	endswitch;
 endif;
 
@@ -41,13 +58,8 @@ if($footer) : ?>
 	<div class="graphic-footer">
 		<?php
 		if ( is_home() || is_search() || is_archive() ) : ?>
-			<div class="footer-cta">
+			<div class="footer-cta wow animate__fadeIn">
 				<?php echo do_shortcode( '[facetwp facet="blog_load_more"]' ); ?>
-			</div>
-		<?php
-		elseif ( is_page_template( 'template-team.php' ) ) : ?>
-			<div class="footer-cta">
-				<?php echo do_shortcode( '[facetwp facet="team_load_more"]' ); ?>
 			</div>
 		<?php
 		else :
@@ -63,7 +75,7 @@ if($footer) : ?>
 						$target = "_self";
 					endif;
 					?>
-						<div class="footer-cta">
+						<div class="footer-cta wow animate__fadeIn">
 							<a href="<?php echo $link; ?>" target="<?php echo $target; ?>" class="button button-large">
 								<?php echo $cta; ?>
 							</a>
@@ -73,7 +85,7 @@ if($footer) : ?>
 					if( is_singular('post') ) :
 						$page_for_posts = get_option( 'page_for_posts' );
 						if($page_for_posts) : ?>
-							<div class="footer-cta">
+							<div class="footer-cta wow animate__fadeIn">
 								<a href="<?php echo get_the_permalink($page_for_posts); ?>" class="button button-large">
 									<?php _e('All News', 'basistechllc'); ?>
 								</a>
@@ -83,32 +95,46 @@ if($footer) : ?>
 					elseif( is_singular('event') ) :
 						$events_page = get_field('all_events_page', 'option');
 						if($events_page) : ?>
-							<div class="footer-cta">
+							<div class="footer-cta wow animate__fadeIn">
 								<a href="<?php echo $events_page; ?>" class="button button-large">
 									<?php _e('All Events', 'basistechllc'); ?>
 								</a>
 							</div>
 						<?php
 						endif;
+/*
 					elseif( is_singular('team-member') ) :
 						$team_page = get_field('all_team_page', 'option');
 						if($team_page) : ?>
-							<div class="footer-cta">
+							<div class="footer-cta wow animate__fadeIn">
 								<a href="<?php echo $team_page; ?>" class="button button-large">
 									<?php _e('View All', 'basistechllc'); ?>
 								</a>
 							</div>
 						<?php
 						endif;
+*/
 					endif;
 				endif;
 			endif;
 		endif; ?>
 		<img src="<?php echo $footer['url']; ?>" alt="<?php echo $footer['alt']; ?>">
 		<?php
-		if($footer['caption']) : ?>
+		$artist = get_field('artist_name', $footer['id']);
+		if($artist) :
+			$artist_url = get_field('artist_url', $footer['id']); ?>
 			<p class="graphic-caption">
-				<?php echo $footer['caption']; ?>
+				<?php 
+				if($artist_url) : ?>
+					<a href="<?php echo $artist_url; ?>" target="_blank">
+				<?php
+				endif; ?>
+						<?php echo $artist; ?>
+				<?php 
+				if($artist_url) : ?>
+					</a>
+				<?php
+				endif; ?>
 			</p>
 		<?php
 		endif; ?> 

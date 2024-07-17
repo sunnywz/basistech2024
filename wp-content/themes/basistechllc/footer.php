@@ -16,38 +16,56 @@
 	<footer id="colophon" class="site-footer">
 		<div class="inner">
 		
-			<div class="footer-flex footer-top">
-				<div class="footer-menu">
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'menu-2',
-							'menu_id'        => 'footer-menu',
-							'depth'			 => 2
-						)
-					);
-					?>
-				</div>
-				<div class="footer-colophon">
-					<?php echo get_field( 'footer_colophon', 'option' ); ?>
-				</div>
-			</div>
+			<div class="footer-top footer-flex">
 			
-			<div class="footer-flex footer-bottom">
-				<div class="footer-copyright">
-					<?php echo get_field( 'footer_copyright', 'option' ); ?>
-				</div>
-				<div class="footer-logo">
+				<div class="footer-imagery">
+					<div class="footer-logo">
+						<?php 
+						$footer_logo = get_field( 'footer_logo', 'option' );
+						if ( $footer_logo && isset($footer_logo['url']) && isset($footer_logo['alt'] ) ) : ?>
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+								<img src="<?php echo esc_url( $footer_logo['url'] ); ?>" alt="<?php echo esc_attr( $footer_logo['alt'] ); ?>" />
+							</a>
+						<?php 
+						endif; ?>
+					</div>
 					<?php 
-					$footer_logo = get_field( 'footer_logo', 'option' );
-					if ( $footer_logo ) : ?>
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-							<img src="<?php echo esc_url( $footer_logo['url'] ); ?>" alt="<?php echo esc_attr( $footer_logo['alt'] ); ?>" />
-						</a>
+					if ( have_rows( 'social_channels', 'option' ) ) : ?>
+						<div class="footer-social">
+							<ul class="social-icons">
+								<?php 
+								while ( have_rows( 'social_channels', 'option' ) ) : the_row(); 
+									$name = get_sub_field( 'social_name' );
+									$icon = get_sub_field( 'social_icon' );
+									$url = get_sub_field( 'social_url' );
+									if($name && $icon && $url) : ?>
+										<li>
+											<a href="<?php echo $url; ?>" target="_blank">
+												<?php echo $icon; ?>
+												<span class="screen-reader-text">
+													<?php echo $name; ?>
+												</span>
+											</a>
+										</li>	
+									<?php
+									endif;
+								endwhile; ?>
+							</ul>
+						</div>
 					<?php 
 					endif; ?>
 				</div>
+
+				<div class="footer-colophon">
+					<?php echo get_field( 'footer_colophon', 'option' ); ?>
+				</div>
+				
 			</div>
+			
+			<div class="footer-copyright">
+				<?php echo get_field( 'footer_copyright', 'option' ); ?>
+			</div>
+				
 		
 		</div>
 	</footer><!-- #colophon -->

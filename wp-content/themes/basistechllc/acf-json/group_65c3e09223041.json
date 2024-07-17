@@ -37,6 +37,48 @@
             "default_value": "",
             "translations": "copy_once",
             "placeholder": ""
+        },
+        {
+            "key": "field_65ef6dfa61a22",
+            "label": "Portfolio Note",
+            "name": "portfolio_highlight_note",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Typically \"Acquired by ____\"",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "translations": "translate",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65fb216080259",
+            "label": "Portfolio Tagline",
+            "name": "portfolio_tagline",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "translations": "translate",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -57,5 +99,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1707336976
+    "modified": 1710956934
 }

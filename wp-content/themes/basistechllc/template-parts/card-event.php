@@ -1,4 +1,4 @@
-<div class="card clickable-div">
+<div class="card clickable-div wow animate__fadeIn">
 	<h3><?php echo get_the_title(); ?></h3>
 	<p class="post-date">
 		<?php echo get_field('event_display_date'); ?>

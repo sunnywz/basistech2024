@@ -139,6 +139,11 @@ function basistechllc_my_mce_before_init( $settings ) {
 			'selector' => 'p',
 			'classes' => 'remove-bottom-margin'
 		),
+		array(
+			'title' => 'Large Paragraph',
+			'selector' => 'p',
+			'classes' => 'large'
+		),
 	);
     $settings['style_formats'] = json_encode( $style_formats );
     return $settings;
@@ -305,7 +310,6 @@ function custom_pagination($numpages = '', $pagerange = '', $paged='') {
 
 }
 
-
 /*
  *  Add class to main index.php so that we can style
  *  archive and blog index the same way
@@ -321,3 +325,35 @@ function blog_body_class($classes) {
 }
 add_filter( 'body_class', 'blog_body_class' );
 
+/*
+ * Register strings for Polylang's Translations table
+ */
+function basistechllc_polylang_strings() {
+    if ( function_exists( 'pll_register_string' ) ) {
+        pll_register_string( 'Continue reading', 'Continue reading', 'basistechllc', false );
+        pll_register_string( 'Learn more', 'Learn more', 'basistechllc', false );
+        pll_register_string( 'Past Events', 'Past Events', 'basistechllc', false );
+        pll_register_string( 'Download', 'Download', 'basistechllc', false );
+        pll_register_string( 'View All', 'View All', 'basistechllc', false );
+        pll_register_string( 'All Events', 'All Events', 'basistechllc', false );
+        pll_register_string( 'All News', 'All News', 'basistechllc', false );
+        
+        pll_register_string( 'Search header', 'Search Results for: %s', 'basistechllc', true);
+        pll_register_string( 'Search not found', 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'basistechllc', true);
+        pll_register_string( 'Search empty', 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'basistechllc', true);
+        
+        pll_register_string( '404 header', 'Oops! That page can&rsquo;t be found.', 'basistechllc', true);
+        pll_register_string( '404 Message', 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'basistechllc', true);
+        
+        pll_register_string( 'Screen reader skip menu button', 'Skip to content', 'basistechllc', false );
+        pll_register_string( 'Screen reader menu toggle', 'Main Menu', 'basistechllc', false );
+        
+        pll_register_string( 'Random', 'Random', 'basistechllc', false );
+        pll_register_string( 'Alphabetical', 'Alphabetical', 'basistechllc', false );
+        pll_register_string( 'Leadership', 'Leadership', 'basistechllc', false );
+        
+        pll_register_string( 'Events - None upcoming', 'No upcoming events at this time, please check back later.', 'basistechllc', false );
+        pll_register_string( 'Events - No past', 'No past events.', 'basistechllc', false );
+    }
+}
+ add_action( 'after_setup_theme', 'basistechllc_polylang_strings' );

@@ -1,0 +1,117 @@
+{
+    "key": "group_6671c18bab187",
+    "title": "Menu",
+    "fields": [
+        {
+            "key": "field_6671c18c048fd",
+            "label": "Menu Sections",
+            "name": "menu_sections",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_6671c1aa048ff",
+            "button_label": "Add Menu Section",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6671c1aa048ff",
+                    "label": "Menu Section Title",
+                    "name": "menu_section_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "translations": "translate",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6671c18c048fd"
+                },
+                {
+                    "key": "field_6671c1ed04902",
+                    "label": "Menu Items",
+                    "name": "menu_items",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Menu Item",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_6671c1f404903",
+                            "label": "Menu Item",
+                            "name": "menu_item",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "Use h3 for menu item titles, if necessary",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "translations": "translate",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0,
+                            "parent_repeater": "field_6671c1ed04902"
+                        }
+                    ],
+                    "parent_repeater": "field_6671c18c048fd"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "menus"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1718731959
+}

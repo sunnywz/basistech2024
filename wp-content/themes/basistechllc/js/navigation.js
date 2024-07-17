@@ -44,18 +44,16 @@
 	} );
 
 	// Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
-	document.addEventListener('click', function(event) {
-	    const isClickInside = siteNavigation.contains(event.target);
-	    const isAnchorTag = event.target.tagName.toLowerCase() === 'a';
+	document.addEventListener( 'click', function( event ) {
+		const isClickInside = siteNavigation.contains( event.target );
+
+		if ( ! isClickInside ) {
+			siteNavigation.classList.remove( 'toggled' );
+			button.setAttribute( 'aria-expanded', 'false' );
+		}
+	} );
 	
-	    if (!isClickInside || isAnchorTag) {
-	        siteNavigation.classList.remove('toggled');
-	        button.setAttribute('aria-expanded', 'false');
-	        button.classList.toggle( 'is-active' );
-	    }
-	});
-	
-	// Get all the link elements within the menu.
+// Get all the link elements within the menu.
 	const links = menu.getElementsByTagName( 'a' );
 
 	// Get all the link elements with children within the menu.
@@ -101,3 +99,24 @@
 	}
 
 }() );
+
+		// MOBILE accordion menu		
+		jQuery( '.menu-item-has-children > .expand' ).click( function(event) {
+    
+	        if(jQuery(this).next('ul').is(':hidden')) { // sub-menu is collapsed
+	        	//console.log("Show it");
+	            event.preventDefault(); // don't try to go to link
+	
+	            jQuery( this ).parent().toggleClass( 'active' );
+	            jQuery( this ).parent().children( 'ul' ).slideDown();     
+	        }
+	        
+	        else {	// sub-menu is expanded
+	        	//console.log("Hide it");
+				event.preventDefault();            
+	
+	            jQuery( this ).parent().toggleClass( 'active' );
+	            jQuery( this ).parent().children( 'ul' ).slideUp(); 
+	        }
+        
+		});

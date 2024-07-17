@@ -1,4 +1,4 @@
-<section class="builder-block event-hero-container">
+<section class="builder-block event-hero-container wow animate__fadeIn">
 	<div class="inner">
 		<h1><?php echo get_the_title(); ?></h1>
 		<div class="event-hero-flex block-content-flex flex-67-33">

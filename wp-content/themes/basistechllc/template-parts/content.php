@@ -17,6 +17,9 @@
 			
 			if ( get_row_layout() == 'plain_content_block' ) :
 				get_template_part( 'template-parts/block', 'content' );
+				
+			elseif ( get_row_layout() == 'accent_image_block' ) :
+				get_template_part( 'template-parts/block', 'accent-image' );
 			
 			elseif ( get_row_layout() == 'portfolio_block' ) :
 				get_template_part( 'template-parts/block', 'portfolio' );

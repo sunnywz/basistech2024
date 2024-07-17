@@ -1,0 +1,67 @@
+{
+    "key": "group_6671aab8310bc",
+    "title": "Recipe",
+    "fields": [
+        {
+            "key": "field_6671aab8778bb",
+            "label": "Ingredients",
+            "name": "ingredients",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Use h2 for list titles, use bullets for ingredient list(s)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "translations": "translate",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_6671ab267bdd9",
+            "label": "Instructions",
+            "name": "instructions",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Use h2 for section titles, use numbered list for instructions",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "translations": "translate",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "recipes"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1718731309
+}
